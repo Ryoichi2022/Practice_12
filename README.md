@@ -39,14 +39,14 @@ https://www.kaggle.com/code/maciejautuch/car-price-prediction/data
 This dataset collected in Kaggle is mainly from craiglist.org (used item selling website) from all over US. These cars are from different manufacturers and of different years.
 
 ## IV. Dataset
-	* The original dataset contains 426,880 rows with 26 columns.
-	* Based on relevance of each column to our analysis and the number of available, i.e., not NaN, values in the column, decided to focus on the fullowing columns:
-	Price, year, manufacturer, model, condition, cylinders, fuel, odometer, title status, transmission, drive, and type
-	* Any rows that include NaN data have been removed from the dataset, which then contains 103577 rows with 12 columns.
-		i)	Id, price, year, and odometer are numerical.
-		ii)	Manufacturer, model, condition, cylinders, fuel, title status, transmission, drive, and type are object.
-	* Id and year could be converted into object and date, respectively.
-	* In addition, cylinders will be processed and used as number for further analysis.
+* The original dataset contains 426,880 rows with 26 columns.
+* Based on relevance of each column to our analysis and the number of available, i.e., not NaN, values in the column, decided to focus on the fullowing columns:
+Price, year, manufacturer, model, condition, cylinders, fuel, odometer, title status, transmission, drive, and type
+* Any rows that include NaN data have been removed from the dataset, which then contains 103577 rows with 12 columns.
+	i)	Id, price, year, and odometer are numerical.
+	ii)	Manufacturer, model, condition, cylinders, fuel, title status, transmission, drive, and type are object.
+* Id and year could be converted into object and date, respectively.
+* In addition, cylinders will be processed and used as number for further analysis.
 
 	![image](https://user-images.githubusercontent.com/105535250/199819404-a0f16653-e9dd-437e-97a8-251c9d1c3d5b.png)
 
