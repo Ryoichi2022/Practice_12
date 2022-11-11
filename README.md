@@ -21,7 +21,9 @@ https://public.tableau.com/authoring/Trial_16675235483750/Sheet1#1
 ###	VII.		Workflow
 ###	VIII.		Database - Worked in pgAdmin
 ###	IX.		Machine Learning Models Selection
-###	X.		Split the Training Data and Testing/Target Data <br>
+###	X.		Split the Training Data and Testing/Target Data
+###		X.1.	Load DecisionTree Regressor
+###		X.2.	Loaded Linear Regression Model<br>
 <br>
 <br>
   
@@ -195,7 +197,8 @@ We can not feed the raw data in the Machine learning model for that we worked on
 
 ![image](https://user-images.githubusercontent.com/105535250/201022939-d19184a9-53ce-4a0a-a424-1aadb85b674c.png)
 
-	We plotted some visuals to find price outliers for that we compared Year features against price. <br>
+	We plotted some visuals to find price outliers for that we compared Year features against price.
+	
 ![image](https://user-images.githubusercontent.com/105535250/201024297-268a0e7b-e211-421e-baae-17ab657824ca.png)
 
 * #### Removing Outliers
@@ -209,19 +212,29 @@ We can not feed the raw data in the Machine learning model for that we worked on
 ### Main Table
 During the exploratory phase, we decided to select the following in the main tabel as they appears relevant to the used car price <br>
 	- a. id 		- h. fuel <br>
+	
 	- b. price		- i. odometer <br>		
+	
 	- c. year		- j. title_status <br>			
+	
 	- d. manufacturer	- k. transmission <br>
+	
 	- e. model		- l. drive <br>
+	
 	- f. condition		- m. type <br>				
+	
 	- g. cylinders		
 
 ### Sub Table
 In a meantime, we decided to use the following as supplemental information. <br>
 	- a. id			- r. paint_color <br>
+	
 	- n. url		- s. image_url <br>
+	
 	- o. region		- t. description <br>
+	
 	- p. region_url		- u. state <br>
+	
 	- q. VIN		- v. posting_date <br>
 
 Two tables are separately generated in PostgreSQL by creating connection to the database software. As an example, two tables are joined together to create a new table including price, print_color, and image_url.
@@ -286,22 +299,20 @@ Separating data into training and testing sets is an important part of evaluatin
 ### Process of splitting
 We used sklearn library to imoprt: **sklearn.model_selection import train_test_split**. Train_test_split is a function in Sklearn model selection for splitting data arrays into two subsets: for training data and for testing data. With this function, you don't need to divide the dataset manually. By default, Sklearn train_test_split will make 25:75 random partitions for the two subsets. But with our dataset we found better results when we divide datasets to 20:80 ratio. We then fed the data in the Machine Learning Model and using the features of the dataset, we  split the processed data into training and testing data. We trained our machine learning algorithm with training data then we tested or evaluated our machine learning model with the test data.first we created two variable **X** and **Y** to split data and the target. We stored **Price** in **Y** which is our target variable and pass rest of the features in varaible **X**. 
 
-## Creating Training and Testing dataset
-for this we created four variables:
-
+### Creating Training and Testing dataset
+For this we created four variables:
 **X_train, X_test, Y_train, and y_test**
 As we seperated the target from the data above, we then put all the data to train the module in the **X_train** variable and all the testing data in the variable **X_test**. The price of all the values from **X_train** will be stored in **y_train** and the price of all the values from **X_test** will be stored in **y_test**. 
 We then utilized train-test-split function which we imported from sklearn library and pass our **X** and **Y** variable in it to finally split our data into traing and testing. 
 
-## Loaded Decission Tree Regressor
-We first load DecissionTree Regressor to test our data. We imported the regressor:
+### X.1. Load DecisionTree Regressor
+We first load DecisionTree Regressor to test our data. We imported the regressor:
 
 from sklearn.tree import DecisionTreeRegressor 
 ![image](https://user-images.githubusercontent.com/105535250/201184674-f18b061a-f1c0-4f9b-9f5d-f97df5db559d.png)
 
-### GridSearchCV
+#### GridSearchCV
 GridSearchCV is a useful tool to fine tune the parameters of your model, depending on the estimator being used. We imported:
-
 from sklearn.model_selection import GridSearchCV
 
 It runs through all the different parameters that is fed into the parameter grid and produces the best combination of parameters, based on a scoring metric of your choice. Obviously, nothing is perfect and GridSearchCV is no exception:
@@ -312,31 +323,31 @@ It runs through all the different parameters that is fed into the parameter grid
 
 Based on the results from GridSearchCV our best bet is to choose the max depth 15.
 
-## Prediction on Testing Data depth 15
+#### Prediction on Testing Data depth 15
 
 After a model has been processed by using the training set, we test the model by making predictions against the test set. Because the data in the testing set already contains known values for the attribute that we want to predict, it is easy to determine whether the model's guesses are correct.
 
 ![image](https://user-images.githubusercontent.com/105535250/201241510-b0e81a54-cb89-4a91-bb24-0ffcb6ac2f24.png)
 
-## Prediction on Training Data depth 15
+#### Prediction on Training Data depth 15
 We similarly then predicted on training data.
 
 ![image](https://user-images.githubusercontent.com/105535250/201242211-e488f348-a01a-4a38-a24a-7d25acb0dcb2.png)
 
-## Decission Tree Regressor Model Evaluation 
-## R square Method
+#### Decission Tree Regressor Model Evaluation 
+* ### R square Method
 R-squared (R2) is a statistical measure of fit that indicates how much variation of a dependent variable is explained by the independent variable(s) in a regression model.  R-squared explains to what extent the variance of one variable explains the variance of the second variable. 
 
 R-squared values range from 0 to 1 and are commonly stated as percentages from 0% to 100%. An R-squared of 100% means that all movements of a dependent variable are completely explained by movements in the independent variable(s).
 
 The more the Rsquare value the better is the model perfprmance.-----need to add more explaination
 
-### R square with depth 15
+* ### R square with depth 15
 ![image](https://user-images.githubusercontent.com/105535250/201242731-1a037328-6669-4cd1-94d9-43de1869fd75.png)
 
 The result explains that R^2 train: 0.882, test: 0.827 : approximately 0.88% for the training data and 0.83% of the testing data observed variation can be explained by the model's inputs. Which is actually the best result we have got with our dataset.
 
-## Loaded Linear Regression Model
+### X.2. Loaded Linear Regression Model
 The second model we tested out data is Linear Regression model. We imported:
 
 from sklearn.linear_model import LinearRegression
