@@ -19,7 +19,8 @@ https://public.tableau.com/authoring/Trial_16675235483750/Sheet1#1
 ###	V.		Technologies, Languages, Tools, and Algorithms Used throughout Project
 ###	VI.		Questions to Answer
 ###	VII.		Workflow
-###	VIII.		Database - Worked in pgAdmin <br>
+###	VIII.		Database - Worked in pgAdmin
+###	IX.		Machine Learning Models Selection <br>
 <br>
 <br>
   
@@ -117,9 +118,11 @@ Price, year, manufacturer, model, condition, cylinders, fuel, odometer, title st
 
 ## VI. Questions to Answer
 
-1.	How does the age of the car, condition and fuel type affect the price of the car?
+1.	How does the mileage affect the price of the used car?
 
-2.	Will this affect the overall demand for a used car in place of a new car for consumers?
+2.	How does the age of the car, condition and fuel type affect the price of the car?
+
+3.	Will this affect the overall demand for a used car in place of a new car for consumers?
 
 
 
@@ -141,6 +144,7 @@ Price, year, manufacturer, model, condition, cylinders, fuel, odometer, title st
 ### Phase 4 Visualization
 	* Utilize Tableau and Google Slide for Visualization and Presentation
 
+<br>
 
 #### Data Collection
 We planned to work with pandas in jupyter notebook. For that we imported Panda Dependencies to create data frame. Data frames are more structured and tabular form and its more easier to process and analyze the data that way.
@@ -153,160 +157,125 @@ We planned to work with pandas in jupyter notebook. For that we imported Panda D
 * Clean title, gas, and automatic transmission looks like a standard. 
 * Odometer of the car may affect the upper limit of the used car price.
 
+#### Data Exploration
+We explored the data by creating box plots and subplots. We were able to better visualize the large amount of data that was given in the excel spreadsheet file. We found that the outliers did not make much sense. For examnple, Oregon had an average price of car at 1.6 million and California had an average price 139,000. Based on what we know about markets, California's average price should be way higher than Oregon's. We have found that our data also is not in one currency which could have skewed the numbers.
+
+#### Analysis
+We were able to analyze the data by using the boxplots to visualize the outliers. The actual prices and the predicted prices were shown through the scatterplot.We were using tableau to get a better understanding of the prices and regions.
+
 #### Preprocessing/ Cleaning Data
 We can not feed the raw data in the Machine learning model for that we worked on cleaning the data. 
 
-	* ### Dropped Unwanted Columns
-	![image](https://user-images.githubusercontent.com/105535250/199826222-7a26b31b-4c6f-410b-9473-4ca8bb55ca83.png)
+* ### Dropped Unwanted Columns
+![image](https://user-images.githubusercontent.com/105535250/199826222-7a26b31b-4c6f-410b-9473-4ca8bb55ca83.png)
 	In the image above you can see the name of columns we dropped out of total 26 columns. We made this decision because the information from these columns were not required to predict price for the Used Cars. 
 
-	* ### Dropped Null Values
+* ### Dropped Null Values
 	Pandas DataFrame dropna() function is used to remove rows and columns with Null/NaN values which is basically missing data and it can cause error in Machine learning Model.
 
-	* ### Format the Cylinder and Year column 
+* ### Format the Cylinder and Year column 
 	For **cylinders** we changed the data type to float64 and remover the object cylinder to make it Numeric value also there were **257** cylinders categorized as **Others** we replace the value to **0**. For the **Year** column it was in decimal so we just changed the data type to integer to remove the decimal from this column. 
 
-	* ### Year Entries 
+* ### Year Entries 
 	Considering the age of the cars can be an important variable, we tried to improve data by dropping the data in which car price is more than 20 years old setting Year Entries for 2000 or older were removed
-	![image](https://user-images.githubusercontent.com/105535250/201019725-cbfd5a53-9d7b-4aac-a23d-edbcbdfb0fdb.png)
+![image](https://user-images.githubusercontent.com/105535250/201019725-cbfd5a53-9d7b-4aac-a23d-edbcbdfb0fdb.png)
 
-
-	* ### Odometer values 
+* ### Odometer values 
 	Odometer values larger than 200,000 (miles) were removed.
-	![image](https://user-images.githubusercontent.com/105535250/201019426-821f0822-610b-4222-bf7e-28a9a29da39c.png)
+![image](https://user-images.githubusercontent.com/105535250/201019426-821f0822-610b-4222-bf7e-28a9a29da39c.png)
 
-
-	* ### Recategorize the State with Feature Engineering and renamed column as Area
+* ### Recategorize the State with Feature Engineering and renamed column as Area
 	To reduce the number of unique values in the state column we recategorized the state and arranged them into four region named as **west, midwest, northeast, and south** given new column name as Area
 
-	![image](https://user-images.githubusercontent.com/105535250/201024725-5361b85f-e3e8-49b3-a1eb-2872a097cac8.png)
+![image](https://user-images.githubusercontent.com/105535250/201024725-5361b85f-e3e8-49b3-a1eb-2872a097cac8.png)
 
-
-	* ### Worked on visualization to find Price Outliers
+* ### Worked on visualization to find Price Outliers
 	An **Outlier** can cause serious problems in statistical analyses. Outliers are values within a dataset that vary greatly from the others—they’re either much larger, or significantly smaller. Outliers may indicate variabilities in a measurement, experimental errors, or a novelty. Therefore its important to remove outliers.
 
-	![image](https://user-images.githubusercontent.com/105535250/201022939-d19184a9-53ce-4a0a-a424-1aadb85b674c.png)
+![image](https://user-images.githubusercontent.com/105535250/201022939-d19184a9-53ce-4a0a-a424-1aadb85b674c.png)
 
 	We plotted some visuals to find price outliers for that we compared Year features against price.
-	![image](https://user-images.githubusercontent.com/105535250/201024297-268a0e7b-e211-421e-baae-17ab657824ca.png)
+![image](https://user-images.githubusercontent.com/105535250/201024297-268a0e7b-e211-421e-baae-17ab657824ca.png)
 
-	* ### Removing Outliers
+* ### Removing Outliers
 	After visual interpretation, we realized that some data were mainly very distinctive values and decided to remove those values.
 
-	![image](https://user-images.githubusercontent.com/105535250/201024542-736df38f-625c-43c2-9a8b-b7b352525008.png)
+	![image](https://user-images.githubusercontent.com/105535250/201024542-736df38f-625c-43c2-9a8b-b7b352525008.png) <br>
+
 
 ## VIII. Database - Worked in pgAdmin
+
 ### Main Table
 During the exploratory phase, we decided to select the following in the main tabel as they appears relevant to the used car price
 	- a. id 		- h. fuel
-	
 	- b. price		- i. odometer		
-	
 	- c. year		- j. title_status			
-	
 	- d. manufacturer	- k. transmission
-	
 	- e. model		- l. drive
-	
 	- f. condition		- m. type				
-	
 	- g. cylinders		
 
 ### Sub Table
 In a meantime, we decided to use the following as supplemental information.
 	- a. id			- r. paint_color
-	
 	- n. url		- s. image_url
-	
 	- o. region		- t. description
-	
 	- p. region_url		- u. state
-	
 	- q. VIN		- v. posting_date
-	
-	
-	
-	
-	
 
-Two tables are separately generated in PostgreSQL by creating connection to the database software. As an example, two tables are joined together as in picture 1 to create a new table including price, print_color, and image_url.
-
-#### (Picture 1)
-
- <img src="https://github.com/lemleysamantha/Project-one/blob/main/Seg2_Database.png" width="320"/>  
+Two tables are separately generated in PostgreSQL by creating connection to the database software. As an example, two tables are joined together to create a new table including price, print_color, and image_url.
 
 
-## Data Exploration
+## IX. Machine Learning Models Selection
 
-We explored the data by creating box plots and subplots. We were able to better visualize the large amount of data that was given in the excel spreadsheet file. We found that the outliers did not make much sense. For examnple, Oregon had an average price of car at 1.6 million and California had an average price 139,000. Based on what we know about markets, California's average price should be way higher than Oregon's. We have found that our data also is not in one currency which could have skewed the numbers.
-
-## Analysis
-
-We were able to analyze the data by using the boxplots to visualize the outliers. The actual prices and the predicted prices were shown through the scatterplot.We were using tableau to get a better understanding of the prices and regions.
-
-## Getting Ready for Machine Learning Models
-
+### Getting Ready for Machine Learning Models
 * ### One hot encoding
 Although, the decision tree algorithm does not require any transformation of the features because decision trees do not take multiple weighted combinations into account simultaneously, but for Linear Regression Model we need to transform our categorical feature. For that we are using One hot coding.
 
 One hot encoding can be defined as the essential process of converting the categorical data variables to be provided to machine and deep learning algorithms which in turn improve predictions as well as classification accuracy of a model. We utized one hot encoding for converting our categorical features which are present in many of our columns like **fuel, manufacturer, model, condition, transmission, drive , etc**
 
-## Machine Learning Models Selection
-We selected to work on two Models i-e Decision Tree Regressor and Linear Regression Model. They are discussed below.
 
-* ## Decision Tree Regressor
-Decision Tree is one of the most commonly used, practical approaches for supervised learning. It can be used to solve both Regression and Classification tasks with the latter being put more into practical application. It is used by the Train Using AutoML tool and classifies or regresses the data using true or false answers to certain questions. The resulting structure, when visualized, is in the form of a tree with different types of nodes—root, internal, and leaf.
+We selected to work on two Models i.e., Decision Tree Regressor and Linear Regression Model. They are discussed below.
 
-![image](https://user-images.githubusercontent.com/105535250/201030320-ce757d60-9499-4c49-82fc-737b211c345f.png)
+#### DecisionTree Regressor
+	Decision Tree is one of the most commonly used, practical approaches for supervised learning. It can be used to solve both Regression and Classification tasks with the latter being put more into practical application. It is used by the Train Using AutoML tool and classifies or regresses the data using true or false answers to certain questions. The resulting structure, when visualized, is in the form of a tree with different types of nodes—root, internal, and leaf.
 
-### Advantages of Decission Tree Regressor:
+	![image](https://user-images.githubusercontent.com/105535250/201030320-ce757d60-9499-4c49-82fc-737b211c345f.png)
 
-There are many advantages of this model. some of them are:
+* Advantages of Decission Tree Regressor
+	There are many advantages of this model. some of them are:
 
-1- Compared to other algorithms decision trees requires less effort for data preparation during pre-processing.
+	1. Compared to other algorithms decision trees requires less effort for data preparation during pre-processing.
+	2. A decision tree does not require normalization of data.
+	3. A decision tree does not require scaling of data as well.
+	4. Missing values in the data also do NOT affect the process of building a decision tree to any considerable extent.
+	5. A Decision tree model is very intuitive and easy to explain to technical teams as well as stakeholders and can be used for both classification and regression problems.
 
-2- A decision tree does not require normalization of data.
+* Disadvantages of Decission Tree Regressor
 
-3- A decision tree does not require scaling of data as well.
+	1. A small change in the data can cause a large change in the structure of the decision tree causing instability.
+	2. Decision tree often involves higher time to train the model.
+	3. Decision tree training is relatively expensive as the complexity and time has taken are more.
+	4. The Decision Tree algorithm is inadequate for applying regression and predicting continuous values.
+	5. It can’t be used in big data: If the size of data is too big, then one single tree may grow a lot of nodes which might result in complexity and leads to overfitting.
 
-4- Missing values in the data also do NOT affect the process of building a decision tree to any considerable extent.
+#### Linear Regression Model
+	Linear Regression may be one of the most commonly used models in the real world. It is a linear approach to modeling the relationship between a scalar response (dependent variable) and one or more explanatory variables (independent variables). Linear regression is used in everything from biological, behavioral, environmental and social sciences to business.
 
-5- A Decision tree model is very intuitive and easy to explain to technical teams as well as stakeholders and can be used for both classification and regression problems.
+	![image](https://user-images.githubusercontent.com/105535250/201041695-9db95289-3668-4514-8bee-69d5ad936108.png)
 
-### Disadvantages of Decission Tree Regressor
+* Advantages of Linear Regression
 
-1- A small change in the data can cause a large change in the structure of the decision tree causing instability.
+	1. Linear Regression performs well when the dataset is linearly separable. We can use it to find the nature of the relationship among the variables.
+	2. Linear Regression is easier to implement, interpret and very efficient to train. 
+	3. Linear Regression is prone to over-fitting but it can be easily avoided using some dimensionality reduction techniques, regularization (L1 and L2) techniques and cross-validation.
 
-2- Decision tree often involves higher time to train the model.
+* Disadvantages of Linear Regression
 
-3- Decision tree training is relatively expensive as the complexity and time has taken are more.
-
-4- The Decision Tree algorithm is inadequate for applying regression and predicting continuous values.
-
-5- It can’t be used in big data: If the size of data is too big, then one single tree may grow a lot of nodes which might result in complexity and leads to overfitting.
-
-* ## Linear Regression Model
-Linear Regression may be one of the most commonly used models in the real world. It is a linear approach to modeling the relationship between a scalar response (dependent variable) and one or more explanatory variables (independent variables). Linear regression is used in everything from biological, behavioral, environmental and social sciences to business.
-
-![image](https://user-images.githubusercontent.com/105535250/201041695-9db95289-3668-4514-8bee-69d5ad936108.png)
-
-### Advantages of Linear Regression
-
-1. Linear Regression performs well when the dataset is linearly separable. We can use it to find the nature of the relationship among the variables.
-
-2. Linear Regression is easier to implement, interpret and very efficient to train. 
-
-3. Linear Regression is prone to over-fitting but it can be easily avoided using some dimensionality reduction techniques, regularization (L1 and L2) techniques and cross-validation.
-
-### Disadvantages of Linear Regression
-
-1. Main limitation of Linear Regression is the assumption of linearity between the dependent variable and the independent variables. In the real world, the data is rarely linearly separable. It assumes that there is a straight-line relationship between the dependent and independent variables which is incorrect many times.
-
-2. Prone to noise and overfitting: If the number of observations are lesser than the number of features, Linear Regression should not be used, otherwise it may lead to overfit because is starts considering noise in this scenario while building the model.
-
-3. Prone to outliers: Linear regression is very sensitive to outliers (anomalies). So, outliers should be analyzed and removed before applying Linear Regression to the dataset.
-
-4. Prone to multicollinearity: Before applying Linear regression, multicollinearity should be removed (using dimensionality reduction techniques) because it assumes that there is no relationship among independent variables.
+	1. Main limitation of Linear Regression is the assumption of linearity between the dependent variable and the independent variables. In the real world, the data is rarely linearly separable. It assumes that there is a straight-line relationship between the dependent and independent variables which is incorrect many times.
+	2. Prone to noise and overfitting: If the number of observations are lesser than the number of features, Linear Regression should not be used, otherwise it may lead to overfit because is starts considering noise in this scenario while building the model.
+	3. Prone to outliers: Linear regression is very sensitive to outliers (anomalies). So, outliers should be analyzed and removed before applying Linear Regression to the dataset.
+	4. Prone to multicollinearity: Before applying Linear regression, multicollinearity should be removed (using dimensionality reduction techniques) because it assumes that there is no relationship among independent variables.
 
 ## Split the Training Data and Testing/Target Data
 
