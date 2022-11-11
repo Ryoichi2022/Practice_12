@@ -12,13 +12,13 @@ https://public.tableau.com/authoring/Trial_16675235483750/Sheet1#1
 
 
 ## ---------------  I N D E X  ---------------
-	I.		Background
-	II.		Object
-	III.		Data Sources
-	IV.		Dataset
-	V.		Technologies, Languages, Tools, and Algorithms Used throughout Project
-	VI.		Questions to Answer
-	VII.		Workflow
+###	I.		Background
+###	II.		Object
+###	III.		Data Sources
+###	IV.		Dataset
+###	V.		Technologies, Languages, Tools, and Algorithms Used throughout Project
+###	VI.		Questions to Answer
+###	VII.		Workflow
 
 ## I. Background
 Over the past few years, the automotive industry has faced a shortage in the Semiconductor Integrate Chips globally. The Semicoductor IC is a critical component for controlling several electronic devices in the vehicle. 
