@@ -22,8 +22,10 @@ https://public.tableau.com/authoring/Trial_16675235483750/Sheet1#1
 ###	VIII.		Database - Worked in pgAdmin
 ###	IX.		Machine Learning Models Selection
 ###	X.		Split the Training Data and Testing/Target Data
-###		X.1.	Load DecisionTree Regressor
-###		X.2.	Loaded Linear Regression Model<br>
+###	X.1.	Load DecisionTree Regressor
+###	X.2.	Loaded Linear Regression Model
+###	XI.	Comparison between two models
+###	XII.	Tableau and Google Slide <br>
 <br>
 <br>
   
@@ -211,31 +213,31 @@ We can not feed the raw data in the Machine learning model for that we worked on
 
 ### Main Table
 During the exploratory phase, we decided to select the following in the main tabel as they appears relevant to the used car price <br>
-	- a. id 		- h. fuel <br>
+	- a. id 		- h. fuel
 	
-	- b. price		- i. odometer <br>		
+	- b. price		- i. odometer		
 	
-	- c. year		- j. title_status <br>			
+	- c. year		- j. title_status			
 	
-	- d. manufacturer	- k. transmission <br>
+	- d. manufacturer	- k. transmission
 	
-	- e. model		- l. drive <br>
+	- e. model		- l. drive
 	
-	- f. condition		- m. type <br>				
+	- f. condition		- m. type				
 	
 	- g. cylinders		
 
 ### Sub Table
 In a meantime, we decided to use the following as supplemental information. <br>
-	- a. id			- r. paint_color <br>
+	- a. id			- r. paint_color
 	
-	- n. url		- s. image_url <br>
+	- n. url		- s. image_url
 	
-	- o. region		- t. description <br>
+	- o. region		- t. description
 	
-	- p. region_url		- u. state <br>
+	- p. region_url		- u. state
 	
-	- q. VIN		- v. posting_date <br>
+	- q. VIN		- v. posting_date
 
 Two tables are separately generated in PostgreSQL by creating connection to the database software. As an example, two tables are joined together to create a new table including price, print_color, and image_url.
 
@@ -244,19 +246,19 @@ Two tables are separately generated in PostgreSQL by creating connection to the 
 
 ### Getting Ready for Machine Learning Models
 * ### One hot encoding
-Although, the decision tree algorithm does not require any transformation of the features because decision trees do not take multiple weighted combinations into account simultaneously, but for Linear Regression Model we need to transform our categorical feature. For that we are using One hot coding.
+	Although, the decision tree algorithm does not require any transformation of the features because decision trees do not take multiple weighted combinations into account simultaneously, but for Linear Regression Model we need to transform our categorical feature. For that we are using One hot coding.
 
-One hot encoding can be defined as the essential process of converting the categorical data variables to be provided to machine and deep learning algorithms which in turn improve predictions as well as classification accuracy of a model. We utized one hot encoding for converting our categorical features which are present in many of our columns like **fuel, manufacturer, model, condition, transmission, drive , etc**
+	One hot encoding can be defined as the essential process of converting the categorical data variables to be provided to machine and deep learning algorithms which in turn improve predictions as well as classification accuracy of a model. We utized one hot encoding for converting our categorical features which are present in many of our columns like **fuel, manufacturer, model, condition, transmission, drive , etc**
 
 
 **We selected to work on two Models i.e., Decision Tree Regressor and Linear Regression Model. They are discussed below.**
 
-#### DecisionTree Regressor
+### DecisionTree Regressor
 	Decision Tree is one of the most commonly used, practical approaches for supervised learning. It can be used to solve both Regression and Classification tasks with the latter being put more into practical application. It is used by the Train Using AutoML tool and classifies or regresses the data using true or false answers to certain questions. The resulting structure, when visualized, is in the form of a tree with different types of nodes—root, internal, and leaf.
 
 	![image](https://user-images.githubusercontent.com/105535250/201030320-ce757d60-9499-4c49-82fc-737b211c345f.png)
 
-* Advantages of Decission Tree Regressor
+* **Advantages of Decission Tree Regressor
 	There are many advantages of this model. some of them are:
 
 	1. Compared to other algorithms decision trees requires less effort for data preparation during pre-processing.
@@ -265,7 +267,7 @@ One hot encoding can be defined as the essential process of converting the categ
 	4. Missing values in the data also do NOT affect the process of building a decision tree to any considerable extent.
 	5. A Decision tree model is very intuitive and easy to explain to technical teams as well as stakeholders and can be used for both classification and regression problems.
 
-* Disadvantages of Decission Tree Regressor
+* **Disadvantages of Decission Tree Regressor
 
 	1. A small change in the data can cause a large change in the structure of the decision tree causing instability.
 	2. Decision tree often involves higher time to train the model.
@@ -273,18 +275,18 @@ One hot encoding can be defined as the essential process of converting the categ
 	4. The Decision Tree algorithm is inadequate for applying regression and predicting continuous values.
 	5. It can’t be used in big data: If the size of data is too big, then one single tree may grow a lot of nodes which might result in complexity and leads to overfitting.
 
-#### Linear Regression Model
+### Linear Regression Model
 	Linear Regression may be one of the most commonly used models in the real world. It is a linear approach to modeling the relationship between a scalar response (dependent variable) and one or more explanatory variables (independent variables). Linear regression is used in everything from biological, behavioral, environmental and social sciences to business.
 
 	![image](https://user-images.githubusercontent.com/105535250/201041695-9db95289-3668-4514-8bee-69d5ad936108.png)
 
-* Advantages of Linear Regression
+* **Advantages of Linear Regression
 
 	1. Linear Regression performs well when the dataset is linearly separable. We can use it to find the nature of the relationship among the variables.
 	2. Linear Regression is easier to implement, interpret and very efficient to train. 
 	3. Linear Regression is prone to over-fitting but it can be easily avoided using some dimensionality reduction techniques, regularization (L1 and L2) techniques and cross-validation.
 
-* Disadvantages of Linear Regression
+* **Disadvantages of Linear Regression
 
 	1. Main limitation of Linear Regression is the assumption of linearity between the dependent variable and the independent variables. In the real world, the data is rarely linearly separable. It assumes that there is a straight-line relationship between the dependent and independent variables which is incorrect many times.
 	2. Prone to noise and overfitting: If the number of observations are lesser than the number of features, Linear Regression should not be used, otherwise it may lead to overfit because is starts considering noise in this scenario while building the model.
@@ -311,7 +313,7 @@ We first load DecisionTree Regressor to test our data. We imported the regressor
 from sklearn.tree import DecisionTreeRegressor 
 ![image](https://user-images.githubusercontent.com/105535250/201184674-f18b061a-f1c0-4f9b-9f5d-f97df5db559d.png)
 
-#### GridSearchCV
+### GridSearchCV
 GridSearchCV is a useful tool to fine tune the parameters of your model, depending on the estimator being used. We imported:
 from sklearn.model_selection import GridSearchCV
 
@@ -323,60 +325,54 @@ It runs through all the different parameters that is fed into the parameter grid
 
 Based on the results from GridSearchCV our best bet is to choose the max depth 15.
 
-#### Prediction on Testing Data depth 15
+### Prediction on Training Data depth 15
+We then train the model.
 
+![image](https://user-images.githubusercontent.com/105535250/201242211-e488f348-a01a-4a38-a24a-7d25acb0dcb2.png)
+
+
+### Prediction on Testing Data depth 15
 After a model has been processed by using the training set, we test the model by making predictions against the test set. Because the data in the testing set already contains known values for the attribute that we want to predict, it is easy to determine whether the model's guesses are correct.
 
 ![image](https://user-images.githubusercontent.com/105535250/201241510-b0e81a54-cb89-4a91-bb24-0ffcb6ac2f24.png)
 
-#### Prediction on Training Data depth 15
-We similarly then predicted on training data.
-
-![image](https://user-images.githubusercontent.com/105535250/201242211-e488f348-a01a-4a38-a24a-7d25acb0dcb2.png)
-
-#### Decission Tree Regressor Model Evaluation 
+### DecisionTree Regressor Model Evaluation 
 * ### R square Method
-R-squared (R2) is a statistical measure of fit that indicates how much variation of a dependent variable is explained by the independent variable(s) in a regression model.  R-squared explains to what extent the variance of one variable explains the variance of the second variable. 
+	R-squared (R2) is a statistical measure of fit that indicates how much variation of a dependent variable is explained by the independent variable(s) in a regression model.  R-squared explains to what extent the variance of one variable explains the variance of the second variable. 
 
-R-squared values range from 0 to 1 and are commonly stated as percentages from 0% to 100%. An R-squared of 100% means that all movements of a dependent variable are completely explained by movements in the independent variable(s).
+	R-squared values range from 0 to 1 and are commonly stated as percentages from 0% to 100%. An R-squared of 100% means that all movements of a dependent variable are completely explained by movements in the independent variable(s).
 
 The more the Rsquare value the better is the model perfprmance.-----need to add more explaination
 
 * ### R square with depth 15
-![image](https://user-images.githubusercontent.com/105535250/201242731-1a037328-6669-4cd1-94d9-43de1869fd75.png)
+	![image](https://user-images.githubusercontent.com/105535250/201242731-1a037328-6669-4cd1-94d9-43de1869fd75.png)
 
-The result explains that R^2 train: 0.882, test: 0.827 : approximately 0.88% for the training data and 0.83% of the testing data observed variation can be explained by the model's inputs. Which is actually the best result we have got with our dataset.
+	The result explains that R^2 train: 0.882, test: 0.827 : approximately 88% for the training data and 83% of the testing data observed variation can be explained by the model's inputs. Which is actually the best result we have got with our dataset.
 
 ### X.2. Loaded Linear Regression Model
 The second model we tested out data is Linear Regression model. We imported:
-
 from sklearn.linear_model import LinearRegression
 ![image](https://user-images.githubusercontent.com/105535250/201197259-dbfc6c70-2818-4db2-90ce-5c19edc4a7b0.png)
 
-## Fitting Data
+### Fitting Data
 ![image](https://user-images.githubusercontent.com/105535250/201198134-c03fca3e-069c-4ef3-9c99-c0be95ed14f2.png)
 
-## Prediction on Testing Data
-
-![image](https://user-images.githubusercontent.com/105535250/201198307-ba8db446-e87f-4e63-bc6d-398d1e494f14.png)
-
-
-## Prediction on Training Data
-
+### Prediction on Training Data
 ![image](https://user-images.githubusercontent.com/105535250/201198490-d355a4d4-5bb7-4ee3-a7b9-bb99d9751de5.png)
 
+### Prediction on Testing Data
+![image](https://user-images.githubusercontent.com/105535250/201198307-ba8db446-e87f-4e63-bc6d-398d1e494f14.png)
 
-## Linear Regression Model Evaluation with R square Method
+### Linear Regression Model Evaluation with R square Method
 
 ![image](https://user-images.githubusercontent.com/105535250/201199107-f7affea5-8ea6-438e-a3bc-82b971feef30.png)
 
 The r square result from linear regression model is: R^2 train: 0.757, test: 0.754 meaning almost 0.76% of the training and 0.75% of the testing data observed variation can be explained by the model's inputs.
 
-## Comparison between two models
-
+## XI. Comparison between two models
 After evaluating both models, we find Decission Tree Regressor model better fit for our dataset as its r square value is higher then in the Linear Regression Model.
 
 ![image](https://user-images.githubusercontent.com/105535250/201243188-194d155c-7e5e-466c-ae31-9b3d2ebd0c73.png)
 
-## Tableau and Google Slide
-We tried to put everything togather and present it as a presentation utilizing Tableau for our visuals to help the viewer understand it as easy possible. 
+## XII. Tableau and Google Slide
+We tried to put everything togather and present it as a presentation utilizing Tableau, which is an application for visualization, as a dashboard for data analytics and machine learning result to help the viewer understand it as easy as possible. In addition, the Tableau offers an interactive element so that the viewer can filter the dataset. The dashboard will include visualization of both dataset used in the project and machine learning result. 
