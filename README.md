@@ -136,18 +136,18 @@ Price, year, manufacturer, model, condition, cylinders, fuel, odometer, title st
 ### ---------- Workflow Overview ----------
 
 ### Phase 1 Data Exploratory
-	* Data Collection
-	* Preprocessing/ Cleaning data
-	* Feature Engineering
+	Data Collection
+	Preprocessing/ Cleaning data
+	Feature Engineering
 ### Phase 2 Data Analysis
-	* Creating table in SQL
-	* Machine Learning Model Selection
-	* Split the data into Training and Testing 
-	* Fitting Data to a Model
+	Creating table in SQL
+	Machine Learning Model Selection
+	Split the data into Training and Testing 
+	Fitting Data to a Model
 ### Phase 3 Evaluation
-	* Evaluate the Model 
+	Evaluate the Model 
 ### Phase 4 Visualization
-	* Utilize Tableau and Google Slide for Visualization and Presentation
+	Utilize Tableau and Google Slide for Visualization and Presentation
 
 <br>
 
