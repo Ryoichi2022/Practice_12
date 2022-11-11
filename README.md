@@ -147,11 +147,11 @@ We planned to work with pandas in jupyter notebook. For that we imported Panda D
 
 #### Assumptions set for Preprocessing
 
-	* Assume that nobody would like to purchase cars that are more than 20 years old.
-	* Also assume that buyers would avoid cars that have already travelled more than 200000 miles
-	* Price trend: The newer the year of entry is, the higher the used car price is.
-	* Clean title, gas, and automatic transmission looks like a standard. 
-	* Odometer of the car may affect the upper limit of the used car price.
+* Assume that nobody would like to purchase cars that are more than 20 years old.
+* Also assume that buyers would avoid cars that have already travelled more than 200000 miles
+* Price trend: The newer the year of entry is, the higher the used car price is.
+* Clean title, gas, and automatic transmission looks like a standard. 
+* Odometer of the car may affect the upper limit of the used car price.
 
 #### Preprocessing/ Cleaning Data
 We can not feed the raw data in the Machine learning model for that we worked on cleaning the data. 
