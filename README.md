@@ -340,14 +340,14 @@ After a model has been processed by using the training set, we test the model by
 ![image](https://user-images.githubusercontent.com/105535250/201241510-b0e81a54-cb89-4a91-bb24-0ffcb6ac2f24.png)
 
 ### DecisionTree Regressor Model Evaluation 
-### * R square Method
+#### R square Method
 	R-squared (R2) is a statistical measure of fit that indicates how much variation of a dependent variable is explained by the independent variable(s) in a regression model.  R-squared explains to what extent the variance of one variable explains the variance of the second variable. 
 
 	R-squared values range from 0 to 1 and are commonly stated as percentages from 0% to 100%. An R-squared of 100% means that all movements of a dependent variable are completely explained by movements in the independent variable(s).
 
 The more the Rsquare value the better is the model perfprmance.-----need to add more explaination
 
-### * R square with depth 15
+#### R square with depth 15
 	![image](https://user-images.githubusercontent.com/105535250/201242731-1a037328-6669-4cd1-94d9-43de1869fd75.png)
 
 	The result explains that R^2 train: 0.882, test: 0.827 : approximately 88% for the training data and 83% of the testing data observed variation can be explained by the model's inputs. Which is actually the best result we have got with our dataset.
