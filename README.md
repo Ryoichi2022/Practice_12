@@ -22,8 +22,8 @@ https://public.tableau.com/authoring/Trial_16675235483750/Sheet1#1
 ###	VIII.		Database - Worked in pgAdmin
 ###	IX.		Machine Learning Models Selection
 ###	X.		Split the Training Data and Testing/Target Data
-###	X.1.	Load DecisionTree Regressor
-###	X.2.	Loaded Linear Regression Model
+###	- X.1.	Load DecisionTree Regressor
+###	- X.2.	Loaded Linear Regression Model
 ###	XI.	Comparison between two models
 ###	XII.	Tableau and Google Slide <br>
 <br>
