@@ -19,8 +19,9 @@ https://public.tableau.com/authoring/Trial_16675235483750/Sheet1#1
 ###	V.		Technologies, Languages, Tools, and Algorithms Used throughout Project
 ###	VI.		Questions to Answer
 ###	VII.		Workflow
-###	VIII.		Database - Worked in pgAdmin
-  
+###	VIII.		Database - Worked in pgAdmin <br>
+<br>
+<br>
   
 ## I. Background
 Over the past few years, the automotive industry has faced a shortage in the Semiconductor Integrate Chips globally. The Semicoductor IC is a critical component for controlling several electronic devices in the vehicle. 
