@@ -310,7 +310,7 @@ For this we created four variables:
 As we seperated the target from the data above, we then put all the data to train the module in the **X_train** variable and all the testing data in the variable **X_test**. The price of all the values from **X_train** will be stored in **y_train** and the price of all the values from **X_test** will be stored in **y_test**. 
 We then utilized train-test-split function which we imported from sklearn library and pass our **X** and **Y** variable in it to finally split our data into traing and testing. 
 
-### X.1. Load DecisionTree Regressor
+## X.1. Load DecisionTree Regressor
 We first load DecisionTree Regressor to test our data. We imported the regressor:
 
 from sklearn.tree import DecisionTreeRegressor 
@@ -352,7 +352,7 @@ The more the Rsquare value the better is the model perfprmance.-----need to add 
 
 	The result explains that R^2 train: 0.882, test: 0.827 : approximately 88% for the training data and 83% of the testing data observed variation can be explained by the model's inputs. Which is actually the best result we have got with our dataset.
 
-### X.2. Loaded Linear Regression Model
+## X.2. Loaded Linear Regression Model
 The second model we tested out data is Linear Regression model. We imported:
 from sklearn.linear_model import LinearRegression
 ![image](https://user-images.githubusercontent.com/105535250/201197259-dbfc6c70-2818-4db2-90ce-5c19edc4a7b0.png)
