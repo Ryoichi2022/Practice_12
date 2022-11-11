@@ -9,8 +9,8 @@ https://public.tableau.com/authoring/Trial_16675235483750/Sheet1#1
 - Python code for data preprocessing and machine learning: **Final_RegModel.ipynb**
 - Dashboard: https://public.tableau.com/app/profile/matt.leiser/viz/CarPricesDashboard_16680540059890/Dashboard1?publish=yes
 - Presentation slide: https://docs.google.com/presentation/d/118tpe3yXka8YBHNV0Z-DFEeLZ-Cx0AEE3ojUGSE9N9M/edit?usp=sharing
-
 <br>
+
 ## ---------------  I N D E X  ---------------
 ###	I.		Background
 ###	II.		Object
