@@ -19,6 +19,8 @@ https://public.tableau.com/authoring/Trial_16675235483750/Sheet1#1
 ###	V.		Technologies, Languages, Tools, and Algorithms Used throughout Project
 ###	VI.		Questions to Answer
 ###	VII.		Workflow
+###	VIII.		Database - Worked in pgAdmin
+
 
 ## I. Background
 Over the past few years, the automotive industry has faced a shortage in the Semiconductor Integrate Chips globally. The Semicoductor IC is a critical component for controlling several electronic devices in the vehicle. 
@@ -80,37 +82,37 @@ This dataset collected in Kaggle is mainly from craiglist.org (used item selling
 * ### Requirements for Machine Learning Model
 	A Python library is a collection or package of various modules. It contains bundles of code that can be used repeatedly in different programs.
 
-#### Libraries for data processing 
-- import numpy as np
-- import pandas as pd
+	#### Libraries for data processing 
+	- import numpy as np
+	- import pandas as pd
 
-#### Libraries for visualization
-- import matplotlib.pyplot as plt
-- import plotly.express as px
-- import seaborn as sns
+	#### Libraries for visualization
+	- import matplotlib.pyplot as plt
+	- import plotly.express as px
+	- import seaborn as sns
 
-#### Libraries for preprocessing
-- from sklearn import preprocessing
-- from sklearn.preprocessing import StandardScaler
-- from sklearn.preprocessing import PolynomialFeatures
-- from sklearn.preprocessing import StandardScaler,OneHotEncoder
+	#### Libraries for preprocessing
+	- from sklearn import preprocessing
+	- from sklearn.preprocessing import StandardScaler
+	- from sklearn.preprocessing import PolynomialFeatures
+	- from sklearn.preprocessing import StandardScaler,OneHotEncoder
 
-#### Liblaries for models
-- from sklearn.linear_model import LinearRegression, Ridge
-- from sklearn.tree import DecisionTreeRegressor
+	#### Liblaries for models
+	- from sklearn.linear_model import LinearRegression, Ridge
+	- from sklearn.tree import DecisionTreeRegressor
 
-#### Libraries for cross validation and model evaluation
-- from sklearn.model_selection import train_test_split, cross_val_score
-- from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
-- from sklearn.pipeline import Pipeline
-- from sklearn.model_selection import GridSearchCV, cross_val_score
+	#### Libraries for cross validation and model evaluation
+	- from sklearn.model_selection import train_test_split, cross_val_score
+	- from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+	- from sklearn.pipeline import Pipeline
+	- from sklearn.model_selection import GridSearchCV, cross_val_score
 
-#### Libraries for SQL
-- import psycopg2
-- import sqlalchemy
-- from sqlalchemy.ext.automap import automap_base
-- from sqlalchemy.orm import Session
-- from sqlalchemy import create_engine, func
+	#### Libraries for SQL
+	- import psycopg2
+	- import sqlalchemy
+	- from sqlalchemy.ext.automap import automap_base
+	- from sqlalchemy.orm import Session
+	- from sqlalchemy import create_engine, func
 
 ## VI. Questions to Answer
 
@@ -118,79 +120,81 @@ This dataset collected in Kaggle is mainly from craiglist.org (used item selling
 
 2.	Will this affect the overall demand for a used car in place of a new car for consumers?
 
+
+
 ## VII. Workflow
-## Phase 1 Data Exploratory
-* Data Collection
-* Preprocessing/ Cleaning data
-* Feature Engineering
 
-## Phase 2 Data Analysis
-* Creating table in SQL
-* Machine Learning Model Selection
-* Split the data into Training and Testing 
-* Fitting Data to a Model
+### ---------- Workflow Overview ----------
 
-## Phase 3 Evaluation
-* Evaluate the Model 
+### Phase 1 Data Exploratory
+	* Data Collection
+	* Preprocessing/ Cleaning data
+	* Feature Engineering
+### Phase 2 Data Analysis
+	* Creating table in SQL
+	* Machine Learning Model Selection
+	* Split the data into Training and Testing 
+	* Fitting Data to a Model
+### Phase 3 Evaluation
+	* Evaluate the Model 
+### Phase 4 Visualization
+	* Utilize Tableau and Google Slide for Visualization and Presentation
 
-## Visualization
-* Utilize Tableau and Google Slide for Visualization and Presentation
 
-## Data Collection
+#### Data Collection
 We planned to work with pandas in jupyter notebook. For that we imported Panda Dependencies to create data frame. Data frames are more structured and tabular form and its more easier to process and analyze the data that way.
 
-## Assumptions set for Preprocessing
+#### Assumptions set for Preprocessing
 
-* Assume that nobody would like to purchase cars that are more than 20 years old.
-* Also assume that buyers would avoid cars that have already travelled more than 200000 miles
-* Price trend: The newer the year of entry is, the higher the used car price is.
-* Clean title, gas, and automatic transmission looks like a standard. 
-* Odometer of the car may affect the upper limit of the used car price.
+	* Assume that nobody would like to purchase cars that are more than 20 years old.
+	* Also assume that buyers would avoid cars that have already travelled more than 200000 miles
+	* Price trend: The newer the year of entry is, the higher the used car price is.
+	* Clean title, gas, and automatic transmission looks like a standard. 
+	* Odometer of the car may affect the upper limit of the used car price.
 
-## Preprocessing/ Cleaning Data
+#### Preprocessing/ Cleaning Data
 We can not feed the raw data in the Machine learning model for that we worked on cleaning the data. 
 
-* ### Dropped Unwanted Columns
-![image](https://user-images.githubusercontent.com/105535250/199826222-7a26b31b-4c6f-410b-9473-4ca8bb55ca83.png)
-In the image above you can see the name of columns we dropped out of total 26 columns. We made this decision because the information from these columns were not required to predict price for the Used Cars. 
+	* ### Dropped Unwanted Columns
+	![image](https://user-images.githubusercontent.com/105535250/199826222-7a26b31b-4c6f-410b-9473-4ca8bb55ca83.png)
+	In the image above you can see the name of columns we dropped out of total 26 columns. We made this decision because the information from these columns were not required to predict price for the Used Cars. 
 
-* ### Dropped Null Values
-Pandas DataFrame dropna() function is used to remove rows and columns with Null/NaN values which is basically missing data and it can cause error in Machine learning Model.
+	* ### Dropped Null Values
+	Pandas DataFrame dropna() function is used to remove rows and columns with Null/NaN values which is basically missing data and it can cause error in Machine learning Model.
 
-* ### Format the Cylinder and Year column 
-For **cylinders** we changed the data type to float64 and remover the object cylinder to make it Numeric value also there were **257** cylinders categorized as **Others** we replace the value to **0**. For the **Year** column it was in decimal so we just changed the data type to integer to remove the decimal from this column. 
+	* ### Format the Cylinder and Year column 
+	For **cylinders** we changed the data type to float64 and remover the object cylinder to make it Numeric value also there were **257** cylinders categorized as **Others** we replace the value to **0**. For the **Year** column it was in decimal so we just changed the data type to integer to remove the decimal from this column. 
 
-* ### Year Entries 
-Considering the age of the cars can be an important variable, we tried to improve data by dropping the data in which car price is more than 20 years old setting Year Entries for 2000 or older were removed
-![image](https://user-images.githubusercontent.com/105535250/201019725-cbfd5a53-9d7b-4aac-a23d-edbcbdfb0fdb.png)
-
-
-* ### Odometer values 
-Odometer values larger than 200,000 (miles) were removed.
-![image](https://user-images.githubusercontent.com/105535250/201019426-821f0822-610b-4222-bf7e-28a9a29da39c.png)
+	* ### Year Entries 
+	Considering the age of the cars can be an important variable, we tried to improve data by dropping the data in which car price is more than 20 years old setting Year Entries for 2000 or older were removed
+	![image](https://user-images.githubusercontent.com/105535250/201019725-cbfd5a53-9d7b-4aac-a23d-edbcbdfb0fdb.png)
 
 
-* ### Recategorize the State with Feature Engineering and renamed column as Area
-To reduce the number of unique values in the state column we recategorized the state and arranged them into four region named as **west, midwest, northeast, and south** given new column name as Area
+	* ### Odometer values 
+	Odometer values larger than 200,000 (miles) were removed.
+	![image](https://user-images.githubusercontent.com/105535250/201019426-821f0822-610b-4222-bf7e-28a9a29da39c.png)
 
-![image](https://user-images.githubusercontent.com/105535250/201024725-5361b85f-e3e8-49b3-a1eb-2872a097cac8.png)
+
+	* ### Recategorize the State with Feature Engineering and renamed column as Area
+	To reduce the number of unique values in the state column we recategorized the state and arranged them into four region named as **west, midwest, northeast, and south** given new column name as Area
+
+	![image](https://user-images.githubusercontent.com/105535250/201024725-5361b85f-e3e8-49b3-a1eb-2872a097cac8.png)
 
 
-* ### Worked on visualization to find Price Outliers
-An **Outlier** can cause serious problems in statistical analyses. Outliers are values within a dataset that vary greatly from the others—they’re either much larger, or significantly smaller. Outliers may indicate variabilities in a measurement, experimental errors, or a novelty. Therefore its important to remove outliers.
+	* ### Worked on visualization to find Price Outliers
+	An **Outlier** can cause serious problems in statistical analyses. Outliers are values within a dataset that vary greatly from the others—they’re either much larger, or significantly smaller. Outliers may indicate variabilities in a measurement, experimental errors, or a novelty. Therefore its important to remove outliers.
 
-![image](https://user-images.githubusercontent.com/105535250/201022939-d19184a9-53ce-4a0a-a424-1aadb85b674c.png)
+	![image](https://user-images.githubusercontent.com/105535250/201022939-d19184a9-53ce-4a0a-a424-1aadb85b674c.png)
 
-We plotted some visuals to find price outliers for that we compared Year features against price.
+	We plotted some visuals to find price outliers for that we compared Year features against price.
+	![image](https://user-images.githubusercontent.com/105535250/201024297-268a0e7b-e211-421e-baae-17ab657824ca.png)
 
-![image](https://user-images.githubusercontent.com/105535250/201024297-268a0e7b-e211-421e-baae-17ab657824ca.png)
+	* ### Removing Outliers
+	After visual interpretation, we realized that some data were mainly very distinctive values and decided to remove those values.
 
-* ### Removing Outliers
-After visual interpretation, we realized that the lower 5% of the data has very low number of values and the upper 5% of the data was mainly very distinctive values. Therefore we decide to drop that portion of the data and set the range for price less then or equal to 100,000.
+	![image](https://user-images.githubusercontent.com/105535250/201024542-736df38f-625c-43c2-9a8b-b7b352525008.png)
 
-![image](https://user-images.githubusercontent.com/105535250/201024542-736df38f-625c-43c2-9a8b-b7b352525008.png)
-
-## Database - Worked in pgAdmin
+## VIII. Database - Worked in pgAdmin
 ### Main Table
 During the exploratory phase, we decided to select the following in the main tabel as they appears relevant to the used car price
 	- a. id 		- h. fuel
