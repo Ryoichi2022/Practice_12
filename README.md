@@ -211,7 +211,8 @@ We can not feed the raw data in the Machine learning model for that we worked on
 ## VIII. Database - Worked in pgAdmin
 
 ### Main Table
-During the exploratory phase, we decided to select the following in the main tabel as they appears relevant to the used car price <br>
+During the exploratory phase, we decided to select the following in the main tabel as they appears relevant to the used car price.
+
 	- a. id 		- h. fuel
 	
 	- b. price		- i. odometer		
@@ -227,7 +228,8 @@ During the exploratory phase, we decided to select the following in the main tab
 	- g. cylinders		
 
 ### Sub Table
-In a meantime, we decided to use the following as supplemental information. <br>
+In a meantime, we decided to use the following as supplemental information.
+
 	- a. id			- r. paint_color
 	
 	- n. url		- s. image_url
@@ -257,7 +259,7 @@ Two tables are separately generated in PostgreSQL by creating connection to the 
 
 	![image](https://user-images.githubusercontent.com/105535250/201030320-ce757d60-9499-4c49-82fc-737b211c345f.png)
 
-* **Advantages of Decission Tree Regressor
+**Advantages of Decission Tree Regressor**
 	There are many advantages of this model. some of them are:
 
 	1. Compared to other algorithms decision trees requires less effort for data preparation during pre-processing.
@@ -266,7 +268,7 @@ Two tables are separately generated in PostgreSQL by creating connection to the 
 	4. Missing values in the data also do NOT affect the process of building a decision tree to any considerable extent.
 	5. A Decision tree model is very intuitive and easy to explain to technical teams as well as stakeholders and can be used for both classification and regression problems.
 
-* **Disadvantages of Decission Tree Regressor
+**Disadvantages of Decission Tree Regressor**
 
 	1. A small change in the data can cause a large change in the structure of the decision tree causing instability.
 	2. Decision tree often involves higher time to train the model.
@@ -279,13 +281,13 @@ Two tables are separately generated in PostgreSQL by creating connection to the 
 
 	![image](https://user-images.githubusercontent.com/105535250/201041695-9db95289-3668-4514-8bee-69d5ad936108.png)
 
-* **Advantages of Linear Regression
+**Advantages of Linear Regression**
 
 	1. Linear Regression performs well when the dataset is linearly separable. We can use it to find the nature of the relationship among the variables.
 	2. Linear Regression is easier to implement, interpret and very efficient to train. 
 	3. Linear Regression is prone to over-fitting but it can be easily avoided using some dimensionality reduction techniques, regularization (L1 and L2) techniques and cross-validation.
 
-* **Disadvantages of Linear Regression
+**Disadvantages of Linear Regression**
 
 	1. Main limitation of Linear Regression is the assumption of linearity between the dependent variable and the independent variables. In the real world, the data is rarely linearly separable. It assumes that there is a straight-line relationship between the dependent and independent variables which is incorrect many times.
 	2. Prone to noise and overfitting: If the number of observations are lesser than the number of features, Linear Regression should not be used, otherwise it may lead to overfit because is starts considering noise in this scenario while building the model.
