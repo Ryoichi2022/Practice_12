@@ -172,9 +172,9 @@ We were able to analyze the data by using the boxplots to visualize the outliers
 We can not feed the raw data in the Machine learning model for that we worked on cleaning the data. 
 
 * #### Dropped Unwanted Columns
-![image](https://user-images.githubusercontent.com/105535250/199826222-7a26b31b-4c6f-410b-9473-4ca8bb55ca83.png)
-
 	In the image above you can see the name of columns we dropped out of total 26 columns. We made this decision because the information from these columns were not required to predict price for the Used Cars. 
+
+![image](https://user-images.githubusercontent.com/105535250/199826222-7a26b31b-4c6f-410b-9473-4ca8bb55ca83.png)
 
 * #### Dropped Null Values
 	Pandas DataFrame dropna() function is used to remove rows and columns with Null/NaN values which is basically missing data and it can cause error in Machine learning Model.
