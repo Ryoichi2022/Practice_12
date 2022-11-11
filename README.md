@@ -258,9 +258,9 @@ Two tables are separately generated in PostgreSQL by creating connection to the 
 
 Decision Tree is one of the most commonly used, practical approaches for supervised learning. It can be used to solve both Regression and Classification tasks with the latter being put more into practical application. It is used by the Train Using AutoML tool and classifies or regresses the data using true or false answers to certain questions. The resulting structure, when visualized, is in the form of a tree with different types of nodes—root, internal, and leaf.
 
-	![image](https://user-images.githubusercontent.com/105535250/201030320-ce757d60-9499-4c49-82fc-737b211c345f.png)
+![image](https://user-images.githubusercontent.com/105535250/201030320-ce757d60-9499-4c49-82fc-737b211c345f.png)
 
-**Advantages of Decission Tree Regressor**
+**Advantages of Decission Tree Regressor** <br>
 	There are many advantages of this model. some of them are:
 
 	1. Compared to other algorithms decision trees requires less effort for data preparation during pre-processing.
@@ -281,7 +281,7 @@ Decision Tree is one of the most commonly used, practical approaches for supervi
 
 Linear Regression may be one of the most commonly used models in the real world. It is a linear approach to modeling the relationship between a scalar response (dependent variable) and one or more explanatory variables (independent variables). Linear regression is used in everything from biological, behavioral, environmental and social sciences to business.
 
-	![image](https://user-images.githubusercontent.com/105535250/201041695-9db95289-3668-4514-8bee-69d5ad936108.png)
+![image](https://user-images.githubusercontent.com/105535250/201041695-9db95289-3668-4514-8bee-69d5ad936108.png)
 
 **Advantages of Linear Regression**
 
