@@ -20,7 +20,8 @@ https://public.tableau.com/authoring/Trial_16675235483750/Sheet1#1
 ###	VI.		Questions to Answer
 ###	VII.		Workflow
 ###	VIII.		Database - Worked in pgAdmin
-###	IX.		Machine Learning Models Selection <br>
+###	IX.		Machine Learning Models Selection
+###	X.		Split the Training Data and Testing/Target Data <br>
 <br>
 <br>
   
@@ -166,62 +167,62 @@ We were able to analyze the data by using the boxplots to visualize the outliers
 #### Preprocessing/ Cleaning Data
 We can not feed the raw data in the Machine learning model for that we worked on cleaning the data. 
 
-* ### Dropped Unwanted Columns
+* #### Dropped Unwanted Columns
 ![image](https://user-images.githubusercontent.com/105535250/199826222-7a26b31b-4c6f-410b-9473-4ca8bb55ca83.png)
 	In the image above you can see the name of columns we dropped out of total 26 columns. We made this decision because the information from these columns were not required to predict price for the Used Cars. 
 
-* ### Dropped Null Values
+* #### Dropped Null Values
 	Pandas DataFrame dropna() function is used to remove rows and columns with Null/NaN values which is basically missing data and it can cause error in Machine learning Model.
 
-* ### Format the Cylinder and Year column 
+* #### Format the Cylinder and Year column 
 	For **cylinders** we changed the data type to float64 and remover the object cylinder to make it Numeric value also there were **257** cylinders categorized as **Others** we replace the value to **0**. For the **Year** column it was in decimal so we just changed the data type to integer to remove the decimal from this column. 
 
-* ### Year Entries 
+* #### Year Entries 
 	Considering the age of the cars can be an important variable, we tried to improve data by dropping the data in which car price is more than 20 years old setting Year Entries for 2000 or older were removed
 ![image](https://user-images.githubusercontent.com/105535250/201019725-cbfd5a53-9d7b-4aac-a23d-edbcbdfb0fdb.png)
 
-* ### Odometer values 
+* #### Odometer values 
 	Odometer values larger than 200,000 (miles) were removed.
 ![image](https://user-images.githubusercontent.com/105535250/201019426-821f0822-610b-4222-bf7e-28a9a29da39c.png)
 
-* ### Recategorize the State with Feature Engineering and renamed column as Area
+* #### Recategorize the State with Feature Engineering and renamed column as Area
 	To reduce the number of unique values in the state column we recategorized the state and arranged them into four region named as **west, midwest, northeast, and south** given new column name as Area
 
 ![image](https://user-images.githubusercontent.com/105535250/201024725-5361b85f-e3e8-49b3-a1eb-2872a097cac8.png)
 
-* ### Worked on visualization to find Price Outliers
+* #### Worked on visualization to find Price Outliers
 	An **Outlier** can cause serious problems in statistical analyses. Outliers are values within a dataset that vary greatly from the others—they’re either much larger, or significantly smaller. Outliers may indicate variabilities in a measurement, experimental errors, or a novelty. Therefore its important to remove outliers.
 
 ![image](https://user-images.githubusercontent.com/105535250/201022939-d19184a9-53ce-4a0a-a424-1aadb85b674c.png)
 
-	We plotted some visuals to find price outliers for that we compared Year features against price.
+	We plotted some visuals to find price outliers for that we compared Year features against price. <br>
 ![image](https://user-images.githubusercontent.com/105535250/201024297-268a0e7b-e211-421e-baae-17ab657824ca.png)
 
-* ### Removing Outliers
+* #### Removing Outliers
 	After visual interpretation, we realized that some data were mainly very distinctive values and decided to remove those values.
 
-	![image](https://user-images.githubusercontent.com/105535250/201024542-736df38f-625c-43c2-9a8b-b7b352525008.png) <br>
+![image](https://user-images.githubusercontent.com/105535250/201024542-736df38f-625c-43c2-9a8b-b7b352525008.png) <br>
 
 
 ## VIII. Database - Worked in pgAdmin
 
 ### Main Table
-During the exploratory phase, we decided to select the following in the main tabel as they appears relevant to the used car price
-	- a. id 		- h. fuel
-	- b. price		- i. odometer		
-	- c. year		- j. title_status			
-	- d. manufacturer	- k. transmission
-	- e. model		- l. drive
-	- f. condition		- m. type				
+During the exploratory phase, we decided to select the following in the main tabel as they appears relevant to the used car price <br>
+	- a. id 		- h. fuel <br>
+	- b. price		- i. odometer <br>		
+	- c. year		- j. title_status <br>			
+	- d. manufacturer	- k. transmission <br>
+	- e. model		- l. drive <br>
+	- f. condition		- m. type <br>				
 	- g. cylinders		
 
 ### Sub Table
-In a meantime, we decided to use the following as supplemental information.
-	- a. id			- r. paint_color
-	- n. url		- s. image_url
-	- o. region		- t. description
-	- p. region_url		- u. state
-	- q. VIN		- v. posting_date
+In a meantime, we decided to use the following as supplemental information. <br>
+	- a. id			- r. paint_color <br>
+	- n. url		- s. image_url <br>
+	- o. region		- t. description <br>
+	- p. region_url		- u. state <br>
+	- q. VIN		- v. posting_date <br>
 
 Two tables are separately generated in PostgreSQL by creating connection to the database software. As an example, two tables are joined together to create a new table including price, print_color, and image_url.
 
@@ -235,7 +236,7 @@ Although, the decision tree algorithm does not require any transformation of the
 One hot encoding can be defined as the essential process of converting the categorical data variables to be provided to machine and deep learning algorithms which in turn improve predictions as well as classification accuracy of a model. We utized one hot encoding for converting our categorical features which are present in many of our columns like **fuel, manufacturer, model, condition, transmission, drive , etc**
 
 
-We selected to work on two Models i.e., Decision Tree Regressor and Linear Regression Model. They are discussed below.
+**We selected to work on two Models i.e., Decision Tree Regressor and Linear Regression Model. They are discussed below.**
 
 #### DecisionTree Regressor
 	Decision Tree is one of the most commonly used, practical approaches for supervised learning. It can be used to solve both Regression and Classification tasks with the latter being put more into practical application. It is used by the Train Using AutoML tool and classifies or regresses the data using true or false answers to certain questions. The resulting structure, when visualized, is in the form of a tree with different types of nodes—root, internal, and leaf.
@@ -277,7 +278,7 @@ We selected to work on two Models i.e., Decision Tree Regressor and Linear Regre
 	3. Prone to outliers: Linear regression is very sensitive to outliers (anomalies). So, outliers should be analyzed and removed before applying Linear Regression to the dataset.
 	4. Prone to multicollinearity: Before applying Linear regression, multicollinearity should be removed (using dimensionality reduction techniques) because it assumes that there is no relationship among independent variables.
 
-## Split the Training Data and Testing/Target Data
+## X. Split the Training Data and Testing/Target Data
 
 ### Purpose to split
 Separating data into training and testing sets is an important part of evaluating machine learning models. Typically, when we separate a data set into a training set and testing set, most of the data is used for training, and a smaller portion of the data is used for testing. By using similar data for training and testing, we can minimize the effects of data discrepancies and better understand the characteristics of the model. 
