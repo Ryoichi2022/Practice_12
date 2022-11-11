@@ -196,11 +196,9 @@ We can not feed the raw data in the Machine learning model for that we worked on
 ![image](https://user-images.githubusercontent.com/105535250/201024725-5361b85f-e3e8-49b3-a1eb-2872a097cac8.png)
 
 * #### Worked on visualization to find Price Outliers
-	An **Outlier** can cause serious problems in statistical analyses. Outliers are values within a dataset that vary greatly from the others—they’re either much larger, or significantly smaller. Outliers may indicate variabilities in a measurement, experimental errors, or a novelty. Therefore its important to remove outliers.
-
+	An **Outlier** can cause serious problems in statistical analyses. Outliers are values within a dataset that vary greatly from the others—they’re either much larger, or significantly smaller. Outliers may indicate variabilities in a measurement, experimental errors, or a novelty. Therefore its important to remove outliers. We plotted some visuals to find price outliers for that we compared Year features against price.
+	
 ![image](https://user-images.githubusercontent.com/105535250/201022939-d19184a9-53ce-4a0a-a424-1aadb85b674c.png)
-
-	We plotted some visuals to find price outliers for that we compared Year features against price.
 	
 ![image](https://user-images.githubusercontent.com/105535250/201024297-268a0e7b-e211-421e-baae-17ab657824ca.png)
 
